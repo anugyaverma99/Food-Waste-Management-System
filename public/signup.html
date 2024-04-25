@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class="modal-body">
+        <!-- <form action="/signup" method="POST">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="form-group">
+              <label for="cexampleInputPassword1">Confirm Password</label>
+              <input type="password" class="form-control" id="cexampleInputPassword1">
+            </div>
+             
+            <button type="submit" class="btn btn-primary">Creat Account</button>
+          </form> -->
+          <form action="/signup" method="POST">
+            <!-- form fields -->
+            <input type="email" name="email">
+            <input type="password" name="password">
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+    
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          const homeLink = document.getElementById("success");
+  
+          homeLink.addEventListener("click", function(event) {
+              event.preventDefault(); // Prevent default behavior of anchor tag
+  
+              // Redirect to the homepage URL
+              window.location.href = "success.html"; // Replace "home.html" with your actual homepage URL
+          });
+      });
+  </script>
+</body>
+</html>
