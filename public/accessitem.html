@@ -6,7 +6,6 @@
   <title>Food Waste Reduction Platform</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* Add your CSS styles here */
     .container {
       max-width: 800px;
       margin: 0 auto;
@@ -90,10 +89,10 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Initial render
+  
   renderDonations(donations);
 
-  // Function to filter donations based on search query
+  
   function filterDonations(query) {
     const filtered = donations.filter(donation =>
       donation.foodType.toLowerCase().includes(query.toLowerCase()) ||
@@ -102,27 +101,26 @@ document.addEventListener('DOMContentLoaded', function () {
     renderDonations(filtered);
   }
 
-  // Event listener for search input
   searchInput.addEventListener('input', function (event) {
     const query = event.target.value.trim();
     filterDonations(query);
   });
 });
 
-// Script for form submission
+
 document.addEventListener('DOMContentLoaded', function () {
   const donationForm = document.getElementById('donation-form');
 
   donationForm.addEventListener('submit', function (event) {
-    event.preventDefault(); // Prevent the default form submission behavior
+    event.preventDefault(); 
 
     const formData = new FormData(donationForm);
     const donationData = Object.fromEntries(formData.entries());
 
-    // Simulate submitting donation data to a backend server
+    
     console.log('Donation data:', donationData);
     
-    // Clear form fields after submission (optional)
+
     donationForm.reset();
   });
 });
