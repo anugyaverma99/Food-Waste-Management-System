@@ -21,6 +21,19 @@ app.use(bodyParser.json());
 // Serve static files from the "public" folder
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.get('/food',(req,res)=>{
+  pool.query('SELECT * FROM donation',(error,result)=>{
+      if(error){
+          console.error('error feching donation',error);
+          res.status(500).json({
+              error:'Internal server error'
+          });
+      }
+      else{
+          res.json(result.rows);
+      }
+  });
+});
 
 // Endpoint to handle form submission from donation.html
 app.post('/food-listings', async (req, res) => {
@@ -28,12 +41,12 @@ app.post('/food-listings', async (req, res) => {
     const { foodType, quantity, expirationDate, pickupLocation } = req.body;
 
     // Insert the form data into the database
-    const client = await pool.connect();
-    const result = await client.query(
+  
+    const result = await pool.query(
       'INSERT INTO donation (foodtype, quantity, expirydate, pickuplocation) VALUES ($1, $2, $3, $4)',
       [foodType, quantity, expirationDate, pickupLocation]
     );
-    client.release();
+   
 
     // Send success response
     res.status(200).send('Donation submitted successfully');
@@ -42,6 +55,7 @@ app.post('/food-listings', async (req, res) => {
     res.status(500).send('Failed to submit donation');
   }
 });
+
 
 // Start the server
 app.listen(port, () => {
