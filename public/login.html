@@ -65,28 +65,27 @@
 <body>
   <div class="container">
     <h2>Login to Food Rescue</h2>
-    <form id="loginForm">
-      <div class="form-group">
+ 
+    <form id="loginForm" action="main.html" method="post">
         <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-      </div>
-      <div class="form-group">
+        <input type="text" id="username" name="username" required><br><br>
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-      </div>
-      <button type="submit">Login</button>
+        <input type="password" id="password" name="password" required><br><br>
+        <button type="submit">Submit</button> <!-- Changed type to "submit" -->
     </form>
   </div>
 
   <script>
-    document.getElementById('loginForm').addEventListener('submit', function(event) {
-      event.preventDefault(); // Prevent the default form submission
-      
-      const formData = new FormData(this);
-      const loginData = Object.fromEntries(formData.entries());
+    document.addEventListener("DOMContentLoaded", function() {
+        const loginForm = document.getElementById("loginForm");
 
-      // You can perform further processing here, such as sending the login data to the server for authentication
-      console.log('Login data:', loginData);
+        loginForm.addEventListener("submit", function(event) {
+            // Prevent the default form submission behavior
+            event.preventDefault();
+
+            // Redirect to the main page
+            window.location.href = "index.html";
+        });
     });
   </script>
 </body>
